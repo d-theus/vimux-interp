@@ -1,0 +1,67 @@
+*vimux-interp.txt* use interpreter with vimux
+
+                            Vimux-interp
+
+==============================================================================
+CONTENTS
+
+  1. About ............................................ |vimux-interp-About|
+  2. Usage ............................................ |vimux-interp-Usage|
+    2.1  g:vimux_interp_exec .......................... |g:vimux_interp_exec| 
+    2.2. VimuxInterpLaunch ............................ |VimuxInterpLaunch| 
+    2.3. VimuxInterpRunCommand ........................ |VimuxInterpRunCommand| 
+    2.4. VimuxInterpRunVisual ......................... |VimuxInterpRunVisual| 
+    2.5. VimuxInterpJump .............................. |VimuxInterpJump|
+  3. ExampleMappings ........................ |vimux-interp-ExampleMappings|
+
+
+==============================================================================
+ABOUT                                                      *vimux-interp-About*
+
+This is add-on for [Vimux](https://github.com/benmills/vimux) allowing you to 
+send commands from buffer right into interpreter.
+
+==============================================================================
+USAGE                                                      *vimux-interp-Usage*
+------------------------------------------------------------------------------
+    2.1  g:vimux_interp_exec
+
+    Set variable g:vimux_interp_exec to the interpreter of your choise.
+
+------------------------------------------------------------------------------
+    2.2. VimuxInterpLaunch                                  *VimuxInterpLaunch*
+
+    Lauches interpreter in the closest pane. Opens it, if not opened.
+
+
+------------------------------------------------------------------------------
+    2.3. VimuxInterpRunCommand                          *VimuxInterpRunCommand*
+    
+    Passes current line to interpreter. Lauches it first, if not running.
+
+
+------------------------------------------------------------------------------
+    2.4. VimuxInterpRunVisual                            *VimuxInterpRunVisual*
+
+    Passes current linewise selection to interpreter. Joins lines with ';'.
+
+
+------------------------------------------------------------------------------
+    2.5. VimuxInterpJump                                      *VimuxInterpJump*
+
+    Move cursor to interpreter's pane of tmux. Interpreter's pane is supposed
+    to be nearest pane.
+
+
+==============================================================================
+EXAMPLE MAPPINGS                                 *vimux-interp-ExampleMappings*
+
+I'm using pry, so my prefix is 'p'.
+>
+  nnoremap <silent> <leader>pl :call VimuxInterpLaunch()<CR>
+  nnoremap <silent> <leader>pe :call VimuxInterpRunCommand()<CR>
+  vnoremap <silent> <leader>pe :call VimuxInterpRunVisual()<CR>
+  noremap <silent> <leader>pi :call VimuxInterpJump()<CR>
+  noremap  <silent> <leader>pc :call VimuxCloseRunner()<CR>
+
+vim:tw=78:ts=2:sw=2:expandtab:ft=help:norl:
