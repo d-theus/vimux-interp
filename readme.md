@@ -16,6 +16,16 @@ List of functions:
 
 * Launch interpreter
 * Run Command
+* Jump to interpreter
+* Close (from plain Vimux)
+
+
+##Installation
+------------
+
+If you use vundle add this to your .vimrc:
+
+    Plugin "slowness/vimux-interp"
 
 
 ##Example mappings
